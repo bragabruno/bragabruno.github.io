@@ -1,4 +1,4 @@
-This Bruno Braga's web developer portfolio. And it is based on the above resources:
+This is Bruno Braga's web developer portfolio. And it is based on the above resources:
 
 Spectral by HTML5 UP
 html5up.net | @ajlkn
