@@ -1,15 +1,5 @@
 /* my Banner */
 
-p {
-  background-color: none;
-  text-align: center;
-  color: #fff;
-  height: 20px;
-  display: normal;
-  align-items: center;
-  justify-content: center;
-}
-
 h2 p.typewrite {
   color: #fff;
   text-transform: none !important;
