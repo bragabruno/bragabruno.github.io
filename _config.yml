@@ -9,5 +9,5 @@ show_downloads: false
 
 github:
   is_project_page: false
-  owner_url: https://github.com/Jackhammer-Labs
+  owner_url: https://github.com/bragabruno
   owner_name: Bruno Braga
