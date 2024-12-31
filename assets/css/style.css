@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap");
 @font-face {
   font-family: 'Noto Sans';
   font-weight: 400;
@@ -460,12 +461,50 @@ footer {
     padding: 0.4in;
     font-size: 12pt;
     color: #444; } }
+:root {
+  --font-family: 'JetBrains Mono', 'Roboto Mono', 'Source Code Pro', 'Ubuntu Mono', 'Fira Mono', Consolas, monospace;
+  --bg-primary: #fff;
+  --bg-secondary: #f6f8fa;
+  --text-primary: #727272;
+  --text-secondary: #393939;
+  --link-color: #00ff00;
+  --link-hover-color: #fc9929;
+  --border-color: #e1e4e8; }
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-primary: #24292e;
+    --bg-secondary: #586069;
+    --text-primary: #ffffff;
+    --text-secondary: #ffffff;
+    --link-color: #00ff00;
+    --link-hover-color: #fc9929;
+    --border-color: #1e1b17; }
+
+  body {
+    color: #ffffff; }
+
+  strong {
+    color: #ffffff; }
+
+  canvas {
+    color: #ffffff; } }
+a {
+  color: var(--link-color);
+  text-decoration: none; }
+  a:hover {
+    color: var(--link-hover-color);
+    text-decoration: underline;
+    font-weight: normal; }
+
 body {
-  background-color: #fff; }
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-family); }
 
 .wrapper {
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
   max-width: 1200px;
   margin: 0 auto;
   padding: 50px; }
@@ -474,55 +513,79 @@ header {
   float: none;
   position: sticky;
   top: 50px;
-  width: 270px;
-  margin-left: 50px;
-  text-align: right;
-  background: #fff;
+  width: 300px;
+  margin-right: 50px;
+  text-align: left;
+  background: var(--bg-primary);
   z-index: 1; }
+  header h1 {
+    margin-bottom: 15px;
+    font-size: 24px; }
+    header h1 a {
+      color: var(--text-secondary);
+      text-decoration: none; }
+      header h1 a:hover {
+        color: var(--link-hover-color);
+        text-decoration: underline;
+        font-weight: bold; }
+  header h2 {
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: var(--text-secondary); }
+    @media (prefers-color-scheme: dark) {
+      header h2 {
+        color: #ffffff; } }
+  header .role {
+    color: var(--text-secondary);
+    margin-bottom: 30px;
+    font-size: 16px;
+    line-height: 1.5; }
   header .profile-img {
+    display: block;
+    margin: 0 auto;
     width: 200px;
     height: 200px;
     border-radius: 50%;
-    border: 3px solid #f6f8fa;
-    object-fit: cover;
-    margin: 0 0 20px auto;
-    display: block; }
-  header h1 {
-    text-align: right;
-    margin-bottom: 20px; }
-    header h1 a {
-      color: #24292e;
+    border: 3px solid var(--bg-secondary);
+    object-fit: cover; }
+  header .social-links {
+    margin-top: 15px; }
+    header .social-links a {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--link-color);
       text-decoration: none; }
-      header h1 a:hover {
-        text-decoration: underline; }
-  header p {
-    text-align: right; }
+      header .social-links a:hover {
+        color: var(--link-hover-color);
+        text-decoration: underline;
+        font-weight: normal; }
 
 section {
   float: none;
-  width: calc(100% - 320px);
-  text-align: right;
+  width: calc(100% - 350px);
+  text-align: left;
   border: none;
   padding: 0; }
-  section h1, section h2, section h3, section p, section ul {
-    text-align: right; }
+  section h1, section h2 {
+    text-align: left; }
+    @media (prefers-color-scheme: dark) {
+      section h1, section h2 {
+        color: #ffffff; } }
+  section h3, section h4, section h5, section h6 {
+    text-align: left; }
+    @media (prefers-color-scheme: dark) {
+      section h3, section h4, section h5, section h6 {
+        color: #ffffff; } }
+  section p, section ul {
+    text-align: left; }
+    @media (prefers-color-scheme: dark) {
+      section p, section ul {
+        color: #ffffff; } }
   section ul {
     list-style-type: none;
     list-style-position: inside;
     padding-left: 0; }
-
-.social-links {
-  margin-top: 30px;
-  text-align: right; }
-  .social-links a {
-    display: inline-block;
-    margin-left: 15px;
-    color: #0366d6;
-    text-decoration: none; }
-    .social-links a:first-child {
-      margin-left: 0; }
-    .social-links a:hover {
-      text-decoration: underline; }
 
 @media print, screen and (max-width: 960px) {
   .wrapper {
@@ -536,18 +599,34 @@ section {
     text-align: center; }
     header .profile-img {
       width: 150px;
-      height: 150px;
-      margin: 0 auto 20px; }
+      height: 150px; }
     header h1, header p {
       text-align: center; }
 
   section {
     width: 100%;
     text-align: center; }
-    section h1, section h2, section h3, section p, section ul {
-      text-align: center; }
+    section h1, section h2 {
+      text-align: center; } }
+    @media print and (prefers-color-scheme: dark), screen and (max-width: 960px) and (prefers-color-scheme: dark) {
+      section h1, section h2 {
+        color: #ffffff; } }
+@media print, screen and (max-width: 960px) {
+    section h3, section h4, section h5, section h6 {
+      text-align: center; } }
+    @media print and (prefers-color-scheme: dark), screen and (max-width: 960px) and (prefers-color-scheme: dark) {
+      section h3, section h4, section h5, section h6 {
+        color: #ffffff; } }
+@media print, screen and (max-width: 960px) {
+    section p, section ul {
+      text-align: center; } }
+    @media print and (prefers-color-scheme: dark), screen and (max-width: 960px) and (prefers-color-scheme: dark) {
+      section p, section ul {
+        color: #ffffff; } }
 
+@media print, screen and (max-width: 960px) {
   .social-links {
     text-align: center; }
     .social-links a {
-      margin: 0 8px; } }
+      display: inline-block;
+      margin: 0 10px; } }
