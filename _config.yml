@@ -3,3 +3,11 @@ description: Tech Entrepreneur and Senior Software Engineer | CTO at Vest Social
 logo: /assets/img/profile.jpg
 show_downloads: false
 theme: jekyll-theme-minimal
+
+# Contact information
+email: braga.bruno81@gmail.com
+
+github:
+  is_project_page: false
+  owner_url: https://github.com/bragabruno
+  owner_name: Bruno Braga
