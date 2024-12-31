@@ -1,32 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Dark mode toggle with system preference sync and localStorage
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
-    const darkModeToggle = document.createElement('button');
-    darkModeToggle.innerHTML = `<i class="fas fa-moon"></i>`;
-    darkModeToggle.className = 'theme-toggle';
-    document.querySelector('header').prepend(darkModeToggle);
-
-    // Check for saved theme preference
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-        document.documentElement.setAttribute('data-theme', savedTheme);
-        darkModeToggle.innerHTML = savedTheme === 'dark' ? 
-            `<i class="fas fa-sun"></i>` : 
-            `<i class="fas fa-moon"></i>`;
-    }
-
-    // Handle theme toggle click
-    darkModeToggle.addEventListener('click', () => {
-        const currentTheme = document.documentElement.getAttribute('data-theme');
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        
-        document.documentElement.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-        darkModeToggle.innerHTML = newTheme === 'dark' ? 
-            `<i class="fas fa-sun"></i>` : 
-            `<i class="fas fa-moon"></i>`;
-    });
-
     // Add data-section attribute to skills section and handle hover effects
     const skillsSection = Array.from(document.querySelectorAll('h2')).find(h2 => 
         h2.textContent.includes('Skills')
