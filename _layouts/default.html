@@ -1,37 +1,40 @@
 <!DOCTYPE html>
-<html lang="{{ site.lang | default: "en-US" }}">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/x-icon" href="{{ '/assets/favicon/favicon.ico' | relative_url }}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/favicon/favicon-32.png' | relative_url }}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ '/assets/favicon/favicon-16.png' | relative_url }}">
+&lt;html lang="{{ site.lang | default: "en-US" }}"&gt;
+&lt;head&gt;
+&lt;meta charset="UTF-8"&gt;
+&lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+&lt;link rel="icon" type="image/x-icon" href="{{ '/assets/favicon/favicon.ico' | relative_url }}"&gt;
+&lt;link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/favicon/favicon-32.png' | relative_url }}"&gt;
+&lt;link rel="icon" type="image/png" sizes="16x16" href="{{ '/assets/favicon/favicon-16.png' | relative_url }}"&gt;
+&lt;title&gt;{{ site.title }}&lt;/title&gt;
 
 {% seo %}
-    <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <h1><a href="{{ "/" | absolute_url }}">{{ site.title }}</a></h1>
+&lt;link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url
+}}"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div class="wrapper"&gt;
+&lt;header&gt;
+&lt;h1&gt;&lt;a href="{{ "/" | absolute_url }}"&gt;{{ site.title }}&lt;/a&gt;&lt;/h1&gt;
 
-        {% if site.logo %}
-          <img src="{{site.logo | relative_url}}" alt="Logo" class="profile-img" />
-        {% endif %}
+{% if site.logo %}
+&lt;img src="{{site.logo | relative_url}}" alt="Logo" class="profile-img" /&gt;
+{% endif %}
 
-        <p>{{ site.description }}</p>
+&lt;p class="site-description"&gt;Tech Entrepreneur and Senior Software Engineer &vert; CTO at Vest Social,
+Inc.&lt;/p&gt;
 
-        <p class="social-links">
-          <a href="https://github.com/{{ site.github_username }}" target="_blank">GitHub</a>
-          <a href="https://linkedin.com/in/{{ site.linkedin_username }}" target="_blank">LinkedIn</a>
-          <a href="mailto:{{ site.email }}">Email</a>
-        </p>
-      </header>
-      <section>
-        {{ content }}
-      </section>
-    </div>
-    <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
-  </body>
-</html>
+&lt;div class="social-links"&gt;
+&lt;a href="https://github.com/{{ site.github_username }}" target="_blank"&gt;GitHub&lt;/a&gt;
+&lt;a href="https://linkedin.com/in/{{ site.linkedin_username }}" target="_blank"&gt;LinkedIn&lt;/a&gt;
+&lt;a href="mailto:{{ site.email }}"&gt;Email&lt;/a&gt;
+&lt;/div&gt;
+&lt;/header&gt;
+&lt;section&gt;
+{{ content }}
+&lt;/section&gt;
+&lt;/div&gt;
+&lt;script src="{{ "/assets/js/scale.fix.js" | relative_url }}"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;

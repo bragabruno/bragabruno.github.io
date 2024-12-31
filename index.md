@@ -39,10 +39,8 @@ Bruno Braga is an innovative tech entrepreneur and senior software engineer with
 
 ### Bachelor's Degree in Computer Science
 
-- University of London | 2028
-
 ## Contact
 
-- Email: [brunoribeirobraga@gmail.com](mailto:brunoribeirobraga@gmail.com)
+- Email: [braga.bruno81@gmail.com](mailto:braga.bruno81@gmail.com)
 - LinkedIn: [linkedin.com/in/brunoribeirobraga](https://www.linkedin.com/in/brunoribeirobraga/)
 - GitHub: [github.com/bragabruno](https://github.com/bragabruno)

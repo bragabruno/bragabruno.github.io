@@ -3,9 +3,12 @@ plugins:
   - jekyll-remote-theme
 
 title: Bruno Braga
-description: Tech Entrepreneur and Senior Software Engineer | Former CTO at Vest Social, Inc.
+description: Tech Entrepreneur and Senior Software Engineer | CTO at Vest Social, Inc.
 logo: /assets/img/profile.jpg
 show_downloads: false
+
+# Contact information
+email: braga.bruno81@gmail.com
 
 github:
   is_project_page: false
