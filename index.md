@@ -49,6 +49,7 @@ Bruno Braga is an innovative tech entrepreneur and senior software engineer with
 
 ### <i class="fas fa-vial"></i> Testing & CI/CD
 
+- Jenkins
 - Codemagic
 - GitHub Actions
 - Jest
