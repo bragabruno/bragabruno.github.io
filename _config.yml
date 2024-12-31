@@ -11,3 +11,20 @@ github:
   is_project_page: false
   owner_url: https://github.com/bragabruno
   owner_name: Bruno Braga
+
+# Build settings
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-remote-theme
+
+# Exclude files from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - .github/
