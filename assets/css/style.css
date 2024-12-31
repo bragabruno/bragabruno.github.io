@@ -460,18 +460,54 @@ footer {
     padding: 0.4in;
     font-size: 12pt;
     color: #444; } }
-@font-face {
-  font-family: 'FiraCode Nerd Font';
-  src: url("../fonts/FiraCode/FiraCodeNerdFont-Regular.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap; }
-@font-face {
-  font-family: 'FiraCode Nerd Font';
-  src: url("../fonts/FiraCode/FiraCodeNerdFont-Bold.ttf") format("truetype");
-  font-weight: bold;
-  font-style: normal;
-  font-display: swap; }
+@media (prefers-color-scheme: dark) {
+  body {
+    color: var(--text-primary) !important; }
+
+  p, h1, h2, h3, h4, h5, h6, ul, li {
+    color: var(--text-primary) !important; }
+
+  strong, b {
+    color: var(--text-primary) !important; } }
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px); }
+  to {
+    opacity: 1;
+    transform: translateY(0); } }
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0); }
+  50% {
+    transform: translateY(-5px); } }
+@keyframes blink {
+  0%, 100% {
+    opacity: 1; }
+  50% {
+    opacity: 0; } }
+@keyframes slideIn {
+  from {
+    transform: translateX(-10px);
+    opacity: 0; }
+  to {
+    transform: translateX(0);
+    opacity: 1; } }
+.cursor {
+  display: inline-block;
+  width: 0.6em;
+  height: 1.2em;
+  background-color: var(--link-color);
+  margin-left: 1px;
+  animation: blink 1s step-end infinite;
+  vertical-align: middle;
+  position: relative;
+  top: -1px;
+  opacity: 0.7; }
+
+.cursor.typing {
+  opacity: 0.9; }
+
 :root {
   --icon-color: #009000;
   --github-color: #171515;
@@ -486,7 +522,7 @@ footer {
   --skills-color: #7952b3;
   --experience-color: #0175c2;
   --education-color: #8c4bff;
-  --font-family: 'FiraCode Nerd Font', monospace;
+  --font-family: 'Courier New', 'Consolas', 'DejaVu Sans Mono', 'Lucida Console', monospace;
   --bg-primary: #fff;
   --bg-secondary: #f6f8fa;
   --text-primary: #727272;
@@ -495,19 +531,21 @@ footer {
   --heading-color: #393939;
   --link-color: #009000;
   --link-hover-color: #fc9929;
-  --border-color: #e1e4e8; }
+  --border-color: #e1e4e8;
+  --transition-speed: 0.3s;
+  --hover-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --bg-primary: #24292e;
-    --bg-secondary: #586069;
-    --text-primary: #E6E6E6;
-    --text-secondary: #D1D1D1;
-    --text-tertiary: #BFBFBF;
+    --bg-secondary: #2d333b;
+    --text-primary: #ffffff;
+    --text-secondary: #f0f0f0;
+    --text-tertiary: #e0e0e0;
     --heading-color: #FFFFFF;
     --link-color: #00ff00;
     --icon-color: #00ff00;
-    --github-color: #c9d1d9;
+    --github-color: #ffffff;
     --linkedin-color: #0a66c2;
     --email-color: #ea4335;
     --code-color: #e34c26;
@@ -516,27 +554,98 @@ footer {
     --devops-color: #2496ed;
     --cloud-color: #ff9900;
     --testing-color: #4caf50;
-    --skills-color: #563d7c;
+    --skills-color: #c8a2ff;
     --experience-color: #0175c2;
     --education-color: #8c4bff;
     --link-hover-color: #fc9929;
-    --border-color: #1e1b17; }
+    --border-color: #1e1b17;
+    --hover-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); } }
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: var(--bg-secondary);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+  transition: all var(--transition-speed) ease;
+  z-index: 1000;
+  box-shadow: var(--hover-shadow); }
+  .theme-toggle:hover {
+    transform: scale(1.1) rotate(10deg);
+    background: var(--bg-primary); }
 
-  body {
-    color: var(--text-primary); }
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all var(--transition-speed) ease;
+  animation: fadeIn 0.5s ease forwards; }
 
-  strong {
-    color: var(--heading-color); }
+.visible {
+  opacity: 1;
+  transform: translateY(0); }
 
-  canvas {
-    color: var(--text-primary); } }
-a {
-  color: var(--link-color);
-  text-decoration: none; }
-  a:hover {
-    color: var(--link-hover-color);
-    text-decoration: underline;
-    font-weight: normal; }
+[data-section="skills"] li {
+  transition: all var(--transition-speed) ease;
+  padding: 8px 12px;
+  border-radius: 4px;
+  position: relative;
+  animation: slideIn 0.3s ease-out; }
+  [data-section="skills"] li:hover {
+    background: var(--bg-secondary);
+    transform: translateX(10px);
+    box-shadow: var(--hover-shadow);
+    border-left: 3px solid var(--link-color); }
+  [data-section="skills"] li.highlight {
+    background: var(--bg-secondary);
+    transform: translateX(10px);
+    box-shadow: var(--hover-shadow);
+    border-left: 3px solid var(--link-color); }
+
+.social-links {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+  gap: 10px; }
+  .social-links a {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 12px;
+    border-radius: 4px;
+    color: var(--link-color);
+    text-decoration: none;
+    transition: all var(--transition-speed) ease;
+    white-space: nowrap; }
+    .social-links a:hover {
+      background: var(--bg-secondary);
+      transform: translateY(-2px);
+      box-shadow: var(--hover-shadow);
+      color: var(--link-hover-color);
+      text-decoration: none; }
+      .social-links a:hover i {
+        transform: scale(1.1); }
+    .social-links a i {
+      margin-right: 8px;
+      width: 16px;
+      text-align: center;
+      transition: all var(--transition-speed) ease; }
+      .social-links a i.fa-github {
+        color: var(--github-color); }
+      .social-links a i.fa-linkedin {
+        color: var(--linkedin-color); }
+      .social-links a i.fa-envelope {
+        color: var(--email-color); }
+
+.fa-bounce {
+  animation: bounce 0.6s ease infinite; }
 
 body {
   background-color: var(--bg-primary);
@@ -561,14 +670,18 @@ header {
   z-index: 1; }
   header h1 {
     margin-bottom: 15px;
-    font-size: 24px; }
+    font-size: 24px;
+    text-align: center; }
     header h1 a {
       color: var(--heading-color);
-      text-decoration: none; }
+      text-decoration: none;
+      transition: all var(--transition-speed) ease;
+      display: inline-block; }
       header h1 a:hover {
         color: var(--link-hover-color);
         text-decoration: underline;
-        font-weight: bold; }
+        font-weight: bold;
+        transform: translateY(-2px); }
   header h2 {
     margin-top: 30px;
     margin-bottom: 15px;
@@ -576,15 +689,14 @@ header {
     color: var(--heading-color); }
     header h2 i {
       color: var(--icon-color);
-      margin-right: 8px; }
-    @media (prefers-color-scheme: dark) {
-      header h2 {
-        color: #ffffff; } }
+      margin-right: 8px;
+      transition: all var(--transition-speed) ease; }
   header .role {
-    color: var(--text-tertiary);
-    margin-bottom: 30px;
+    color: var(--link-color);
+    margin: 15px 0 30px;
     font-size: 16px;
-    line-height: 1.5; }
+    line-height: 1.5;
+    text-align: center; }
   header .profile-img {
     display: block;
     margin: 0 auto;
@@ -592,28 +704,12 @@ header {
     height: 200px;
     border-radius: 50%;
     border: 3px solid var(--bg-secondary);
-    object-fit: cover; }
-  header .social-links {
-    margin-top: 15px; }
-    header .social-links a {
-      display: block;
-      margin-bottom: 10px;
-      color: var(--link-color);
-      text-decoration: none; }
-      header .social-links a i {
-        margin-right: 8px;
-        width: 16px;
-        text-align: center; }
-        header .social-links a i.fa-github {
-          color: var(--github-color); }
-        header .social-links a i.fa-linkedin {
-          color: var(--linkedin-color); }
-        header .social-links a i.fa-envelope {
-          color: var(--email-color); }
-      header .social-links a:hover {
-        color: var(--link-hover-color);
-        text-decoration: underline;
-        font-weight: normal; }
+    object-fit: cover;
+    transition: all var(--transition-speed) ease; }
+    header .profile-img:hover {
+      transform: scale(1.05);
+      box-shadow: var(--hover-shadow);
+      border-color: var(--link-color); }
 
 section {
   float: none;
@@ -622,11 +718,15 @@ section {
   border: none;
   padding: 0; }
   section h1, section h2, section h3, section h4, section h5, section h6 {
-    text-align: left; }
+    text-align: left;
+    transition: all var(--transition-speed) ease; }
+    section h1:hover, section h2:hover, section h3:hover, section h4:hover, section h5:hover, section h6:hover {
+      transform: translateX(5px); }
     section h1 i, section h2 i, section h3 i, section h4 i, section h5 i, section h6 i {
       margin-right: 8px;
       width: 16px;
-      text-align: center; }
+      text-align: center;
+      transition: all var(--transition-speed) ease; }
       section h1 i.fa-user, section h2 i.fa-user, section h3 i.fa-user, section h4 i.fa-user, section h5 i.fa-user, section h6 i.fa-user {
         color: var(--icon-color); }
       section h1 i.fa-tools, section h2 i.fa-tools, section h3 i.fa-tools, section h4 i.fa-tools, section h5 i.fa-tools, section h6 i.fa-tools {
@@ -649,19 +749,8 @@ section {
         color: var(--experience-color); }
       section h1 i.fa-graduation-cap, section h2 i.fa-graduation-cap, section h3 i.fa-graduation-cap, section h4 i.fa-graduation-cap, section h5 i.fa-graduation-cap, section h6 i.fa-graduation-cap {
         color: var(--education-color); }
-    @media (prefers-color-scheme: dark) {
-      section h1, section h2, section h3, section h4, section h5, section h6 {
-        color: var(--heading-color); } }
-  section h3, section h4, section h5, section h6 {
-    text-align: left; }
-    @media (prefers-color-scheme: dark) {
-      section h3, section h4, section h5, section h6 {
-        color: var(--heading-color); } }
   section p, section ul {
     text-align: left; }
-    @media (prefers-color-scheme: dark) {
-      section p, section ul {
-        color: var(--text-primary); } }
   section ul {
     list-style-type: none;
     list-style-position: inside;
@@ -686,27 +775,16 @@ section {
   section {
     width: 100%;
     text-align: center; }
-    section h1, section h2 {
-      text-align: center; } }
-    @media print and (prefers-color-scheme: dark), screen and (max-width: 960px) and (prefers-color-scheme: dark) {
-      section h1, section h2 {
-        color: var(--heading-color); } }
-@media print, screen and (max-width: 960px) {
-    section h3, section h4, section h5, section h6 {
-      text-align: center; } }
-    @media print and (prefers-color-scheme: dark), screen and (max-width: 960px) and (prefers-color-scheme: dark) {
-      section h3, section h4, section h5, section h6 {
-        color: var(--heading-color); } }
-@media print, screen and (max-width: 960px) {
-    section p, section ul {
-      text-align: center; } }
-    @media print and (prefers-color-scheme: dark), screen and (max-width: 960px) and (prefers-color-scheme: dark) {
-      section p, section ul {
-        color: var(--text-primary); } }
+    section h1, section h2, section h3, section h4, section h5, section h6, section p, section ul {
+      text-align: center; }
 
-@media print, screen and (max-width: 960px) {
   .social-links {
     text-align: center; }
     .social-links a {
       display: inline-block;
-      margin: 0 10px; } }
+      margin: 0 10px; }
+
+  [data-section="skills"] li {
+    text-align: center; }
+    [data-section="skills"] li:hover, [data-section="skills"] li.highlight {
+      transform: translateY(-5px); } }
