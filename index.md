@@ -21,7 +21,7 @@ Bruno Braga is an innovative tech entrepreneur and senior software engineer with
 
 ### Founder and CTO
 
-**Vest Social, Inc.** | April 2024 - October 2024
+**Vest Social, Inc.** | April 2024 - Present
 
 - Built and managed a tech startup focused on social media for job postings and job searches
 - Led a team of 10 developers, creating scalable solutions
