@@ -14,19 +14,19 @@
   <body>
     <div class="wrapper">
       <header>
-        <h1><a href="{{ "/" | absolute_url }}">{{ site.title }}</a></h1>
-
         {% if site.logo %}
-          <img src="{{site.logo | relative_url}}" alt="Logo" class="profile-img" />
+          <img src="{{site.logo | relative_url}}" alt="Profile" class="profile-img" />
         {% endif %}
+
+        <h1><a href="{{ "/" | absolute_url }}">{{ site.title }}</a></h1>
 
         <p>{{ site.description }}</p>
 
-        <p class="social-links">
-          <a href="https://github.com/{{ site.github_username }}" target="_blank">GitHub</a>
-          <a href="https://linkedin.com/in/{{ site.linkedin_username }}" target="_blank">LinkedIn</a>
-          <a href="mailto:{{ site.email }}">Email</a>
-        </p>
+        <div class="social-links">
+          <a href="https://github.com/bragabruno" target="_blank">GitHub</a>
+          <a href="https://linkedin.com/in/brunoribeirobraga" target="_blank">LinkedIn</a>
+          <a href="mailto:braga.bruno81@gmail.com">Email</a>
+        </div>
       </header>
       <section>
         {{ content }}

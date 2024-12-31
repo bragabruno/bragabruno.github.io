@@ -303,9 +303,9 @@ PLATFORMS
   x86_64-linux-musl
 
 DEPENDENCIES
-  github-pages
-  jekyll-remote-theme
-  webrick
+  github-pages (~> 228)
+  jekyll (~> 3.9.3)
+  webrick (~> 1.8)
 
 BUNDLED WITH
    2.5.10
