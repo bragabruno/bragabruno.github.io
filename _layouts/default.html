@@ -14,14 +14,15 @@
   <body>
     <div class="wrapper">
       <header>
+        <h1><a href="{{ "/" | absolute_url }}">{{ site.title }}</a></h1>
+        
+        <p class="role">Software Engineer specializing in full-stack development and cloud solutions</p>
+
         {% if site.logo %}
           <img src="{{site.logo | relative_url}}" alt="Profile" class="profile-img" />
         {% endif %}
 
-        <h1><a href="{{ "/" | absolute_url }}">{{ site.title }}</a></h1>
-
-        <p>{{ site.description }}</p>
-
+        <h2>Profile</h2>
         <div class="social-links">
           <a href="https://github.com/bragabruno" target="_blank">GitHub</a>
           <a href="https://linkedin.com/in/brunoribeirobraga" target="_blank">LinkedIn</a>
