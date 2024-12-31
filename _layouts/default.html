@@ -17,11 +17,11 @@
       <header>
         <h1><a href="{{ "/" | absolute_url }}">{{ site.title }}</a></h1>
         
-        <p class="role">Software Engineer specializing in full-stack development and cloud solutions</p>
-
         {% if site.logo %}
           <img src="{{site.logo | relative_url}}" alt="Profile" class="profile-img" />
         {% endif %}
+
+        <p class="role">Software Engineer specializing in full-stack development and cloud solutions</p>
 
         <h2><i class="fas fa-user"></i> Profile</h2>
         <div class="social-links">
@@ -35,5 +35,6 @@
       </section>
     </div>
     <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
+    <script src="{{ "/assets/js/main.js" | relative_url }}"></script>
   </body>
 </html>

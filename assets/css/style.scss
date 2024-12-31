@@ -3,20 +3,55 @@
 
 @import "jekyll-theme-minimal";
 
-@font-face {
-  font-family: 'FiraCode Nerd Font';
-  src: url('../fonts/FiraCode/FiraCodeNerdFont-Regular.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
+@media (prefers-color-scheme: dark) {
+  body {
+    color: var(--text-primary) !important;
+  }
+
+  p, h1, h2, h3, h4, h5, h6, ul, li {
+    color: var(--text-primary) !important;
+  }
+
+  strong, b {
+    color: var(--text-primary) !important;
+  }
 }
 
-@font-face {
-  font-family: 'FiraCode Nerd Font';
-  src: url('../fonts/FiraCode/FiraCodeNerdFont-Bold.ttf') format('truetype');
-  font-weight: bold;
-  font-style: normal;
-  font-display: swap;
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes slideIn {
+  from { transform: translateX(-10px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.cursor {
+  display: inline-block;
+  width: 0.6em;
+  height: 1.2em;
+  background-color: var(--link-color);
+  margin-left: 1px;
+  animation: blink 1s step-end infinite;
+  vertical-align: middle;
+  position: relative;
+  top: -1px;
+  opacity: 0.7;
+}
+
+.cursor.typing {
+  opacity: 0.9;
 }
 
 :root {
@@ -33,7 +68,7 @@
   --skills-color: #7952b3;
   --experience-color: #0175c2;
   --education-color: #8c4bff;
-  --font-family: 'FiraCode Nerd Font', monospace;
+  --font-family: 'Courier New', 'Consolas', 'DejaVu Sans Mono', 'Lucida Console', monospace;
   --bg-primary: #fff;
   --bg-secondary: #f6f8fa;
   --text-primary: #727272;
@@ -43,19 +78,21 @@
   --link-color: #009000;
   --link-hover-color: #fc9929;
   --border-color: #e1e4e8;
+  --transition-speed: 0.3s;
+  --hover-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --bg-primary: #24292e;
-    --bg-secondary: #586069;
-    --text-primary: #E6E6E6;
-    --text-secondary: #D1D1D1;
-    --text-tertiary: #BFBFBF;
+    --bg-secondary: #2d333b;
+    --text-primary: #ffffff;
+    --text-secondary: #f0f0f0;
+    --text-tertiary: #e0e0e0;
     --heading-color: #FFFFFF;
     --link-color: #00ff00;
     --icon-color: #00ff00;
-    --github-color: #c9d1d9;
+    --github-color: #ffffff;
     --linkedin-color: #0a66c2;
     --email-color: #ea4335;
     --code-color: #e34c26;
@@ -64,35 +101,124 @@
     --devops-color: #2496ed;
     --cloud-color: #ff9900;
     --testing-color: #4caf50;
-    --skills-color: #563d7c;
+    --skills-color: #c8a2ff;
     --experience-color: #0175c2;
     --education-color: #8c4bff;
     --link-hover-color: #fc9929;
     --border-color: #1e1b17;
-  }
-  
-  body {
-    color: var(--text-primary);
-  }
-  
-  strong {
-    color: var(--heading-color);
-  }
-  
-  canvas {
-    color: var(--text-primary);
+    --hover-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   }
 }
 
-a {
-  color: var(--link-color);
-  text-decoration: none;
-  
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: var(--bg-secondary);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+  transition: all var(--transition-speed) ease;
+  z-index: 1000;
+  box-shadow: var(--hover-shadow);
+
   &:hover {
-    color: var(--link-hover-color);
-    text-decoration: underline;
-    font-weight: normal;
+    transform: scale(1.1) rotate(10deg);
+    background: var(--bg-primary);
   }
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all var(--transition-speed) ease;
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+[data-section="skills"] li {
+  transition: all var(--transition-speed) ease;
+  padding: 8px 12px;
+  border-radius: 4px;
+  position: relative;
+  animation: slideIn 0.3s ease-out;
+
+  &:hover {
+    background: var(--bg-secondary);
+    transform: translateX(10px);
+    box-shadow: var(--hover-shadow);
+    border-left: 3px solid var(--link-color);
+  }
+
+  &.highlight {
+    background: var(--bg-secondary);
+    transform: translateX(10px);
+    box-shadow: var(--hover-shadow);
+    border-left: 3px solid var(--link-color);
+  }
+}
+
+.social-links {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+  gap: 10px;
+
+  a {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 12px;
+    border-radius: 4px;
+    color: var(--link-color);
+    text-decoration: none;
+    transition: all var(--transition-speed) ease;
+    white-space: nowrap;
+
+    &:hover {
+      background: var(--bg-secondary);
+      transform: translateY(-2px);
+      box-shadow: var(--hover-shadow);
+      color: var(--link-hover-color);
+      text-decoration: none;
+
+      i {
+        transform: scale(1.1);
+      }
+    }
+
+    i {
+      margin-right: 8px;
+      width: 16px;
+      text-align: center;
+      transition: all var(--transition-speed) ease;
+
+      &.fa-github {
+        color: var(--github-color);
+      }
+      &.fa-linkedin {
+        color: var(--linkedin-color);
+      }
+      &.fa-envelope {
+        color: var(--email-color);
+      }
+    }
+  }
+}
+
+.fa-bounce {
+  animation: bounce 0.6s ease infinite;
 }
 
 body {
@@ -122,15 +248,19 @@ header {
   h1 {
     margin-bottom: 15px;
     font-size: 24px;
+    text-align: center;
     
     a {
       color: var(--heading-color);
       text-decoration: none;
+      transition: all var(--transition-speed) ease;
+      display: inline-block;
       
       &:hover {
         color: var(--link-hover-color);
         text-decoration: underline;
         font-weight: bold;
+        transform: translateY(-2px);
       }
     }
   }
@@ -144,18 +274,16 @@ header {
     i {
       color: var(--icon-color);
       margin-right: 8px;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      color: #ffffff;
+      transition: all var(--transition-speed) ease;
     }
   }
 
   .role {
-    color: var(--text-tertiary);
-    margin-bottom: 30px;
+    color: var(--link-color);
+    margin: 15px 0 30px;
     font-size: 16px;
     line-height: 1.5;
+    text-align: center;
   }
 
   .profile-img {
@@ -166,38 +294,12 @@ header {
     border-radius: 50%;
     border: 3px solid var(--bg-secondary);
     object-fit: cover;
-  }
+    transition: all var(--transition-speed) ease;
 
-  .social-links {
-    margin-top: 15px;
-    
-    a {
-      display: block;
-      margin-bottom: 10px;
-      color: var(--link-color);
-      text-decoration: none;
-
-      i {
-        margin-right: 8px;
-        width: 16px;
-        text-align: center;
-
-        &.fa-github {
-          color: var(--github-color);
-        }
-        &.fa-linkedin {
-          color: var(--linkedin-color);
-        }
-        &.fa-envelope {
-          color: var(--email-color);
-        }
-      }
-      
-      &:hover {
-        color: var(--link-hover-color);
-        text-decoration: underline;
-        font-weight: normal;
-      }
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: var(--hover-shadow);
+      border-color: var(--link-color);
     }
   }
 }
@@ -211,66 +313,34 @@ section {
   
   h1, h2, h3, h4, h5, h6 {
     text-align: left;
+    transition: all var(--transition-speed) ease;
+
+    &:hover {
+      transform: translateX(5px);
+    }
 
     i {
       margin-right: 8px;
       width: 16px;
       text-align: center;
+      transition: all var(--transition-speed) ease;
 
-      &.fa-user {
-        color: var(--icon-color);
-      }
-      &.fa-tools {
-        color: var(--skills-color);
-      }
-      &.fa-code {
-        color: var(--code-color);
-      }
-      &.fa-java {
-        color: var(--java-color);
-      }
-      &.fa-layer-group {
-        color: var(--framework-color);
-      }
-      &.fa-server {
-        color: var(--devops-color);
-      }
-      &.fa-cloud {
-        color: var(--cloud-color);
-      }
-      &.fa-vial {
-        color: var(--testing-color);
-      }
-      &.fa-plus-circle {
-        color: var(--icon-color);
-      }
-      &.fa-briefcase {
-        color: var(--experience-color);
-      }
-      &.fa-graduation-cap {
-        color: var(--education-color);
-      }
-    }
-    
-    @media (prefers-color-scheme: dark) {
-      color: var(--heading-color);
-    }
-  }
-  
-  h3, h4, h5, h6 {
-    text-align: left;
-    
-    @media (prefers-color-scheme: dark) {
-      color: var(--heading-color);
+      &.fa-user { color: var(--icon-color); }
+      &.fa-tools { color: var(--skills-color); }
+      &.fa-code { color: var(--code-color); }
+      &.fa-java { color: var(--java-color); }
+      &.fa-layer-group { color: var(--framework-color); }
+      &.fa-server { color: var(--devops-color); }
+      &.fa-cloud { color: var(--cloud-color); }
+      &.fa-vial { color: var(--testing-color); }
+      &.fa-plus-circle { color: var(--icon-color); }
+      &.fa-briefcase { color: var(--experience-color); }
+      &.fa-graduation-cap { color: var(--education-color); }
     }
   }
   
   p, ul {
     text-align: left;
-    
-    @media (prefers-color-scheme: dark) {
-      color: var(--text-primary);
-    }
   }
   
   ul {
@@ -306,28 +376,8 @@ section {
     width: 100%;
     text-align: center;
     
-    h1, h2 {
+    h1, h2, h3, h4, h5, h6, p, ul {
       text-align: center;
-      
-      @media (prefers-color-scheme: dark) {
-        color: var(--heading-color);
-      }
-    }
-    
-    h3, h4, h5, h6 {
-      text-align: center;
-      
-      @media (prefers-color-scheme: dark) {
-        color: var(--heading-color);
-      }
-    }
-    
-    p, ul {
-      text-align: center;
-      
-      @media (prefers-color-scheme: dark) {
-        color: var(--text-primary);
-      }
     }
   }
   
@@ -336,7 +386,14 @@ section {
     
     a {
       display: inline-block;
-    margin: 0 10px;
+      margin: 0 10px;
+    }
+  }
+
+  [data-section="skills"] li {
+    text-align: center;
+    &:hover, &.highlight {
+      transform: translateY(-5px);
     }
   }
 }
