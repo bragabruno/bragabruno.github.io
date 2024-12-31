@@ -55,7 +55,7 @@ Bruno Braga is an innovative tech entrepreneur and senior software engineer with
 - Cloud-native apps
 - Interfaith app development
 
-## <i class="fas fa-briefcase"></i> Experience
+## <i class="fas fa-briefcase"></i> Most Recent Experience
 
 ### Founder and CTO
 **Vest Social, Inc.** | April 2024 - Present
