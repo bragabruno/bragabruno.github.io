@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap");
 @font-face {
   font-family: 'Noto Sans';
   font-weight: 400;
@@ -461,13 +460,40 @@ footer {
     padding: 0.4in;
     font-size: 12pt;
     color: #444; } }
+@font-face {
+  font-family: 'FiraCode Nerd Font';
+  src: url("../fonts/FiraCode/FiraCodeNerdFont-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; }
+@font-face {
+  font-family: 'FiraCode Nerd Font';
+  src: url("../fonts/FiraCode/FiraCodeNerdFont-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap; }
 :root {
-  --font-family: 'JetBrains Mono', 'Roboto Mono', 'Source Code Pro', 'Ubuntu Mono', 'Fira Mono', Consolas, monospace;
+  --icon-color: #009000;
+  --github-color: #171515;
+  --linkedin-color: #0a66c2;
+  --email-color: #ea4335;
+  --code-color: #e34c26;
+  --java-color: #007396;
+  --framework-color: #41b883;
+  --devops-color: #2496ed;
+  --cloud-color: #ff9900;
+  --testing-color: #4caf50;
+  --skills-color: #7952b3;
+  --experience-color: #0175c2;
+  --education-color: #8c4bff;
+  --font-family: 'FiraCode Nerd Font', monospace;
   --bg-primary: #fff;
   --bg-secondary: #f6f8fa;
   --text-primary: #727272;
   --text-secondary: #393939;
-  --link-color: #00ff00;
+  --text-tertiary: #666666;
+  --heading-color: #393939;
+  --link-color: #009000;
   --link-hover-color: #fc9929;
   --border-color: #e1e4e8; }
 
@@ -475,20 +501,35 @@ footer {
   :root {
     --bg-primary: #24292e;
     --bg-secondary: #586069;
-    --text-primary: #ffffff;
-    --text-secondary: #ffffff;
+    --text-primary: #E6E6E6;
+    --text-secondary: #D1D1D1;
+    --text-tertiary: #BFBFBF;
+    --heading-color: #FFFFFF;
     --link-color: #00ff00;
+    --icon-color: #00ff00;
+    --github-color: #c9d1d9;
+    --linkedin-color: #0a66c2;
+    --email-color: #ea4335;
+    --code-color: #e34c26;
+    --java-color: #007396;
+    --framework-color: #61dafb;
+    --devops-color: #2496ed;
+    --cloud-color: #ff9900;
+    --testing-color: #4caf50;
+    --skills-color: #563d7c;
+    --experience-color: #0175c2;
+    --education-color: #8c4bff;
     --link-hover-color: #fc9929;
     --border-color: #1e1b17; }
 
   body {
-    color: #ffffff; }
+    color: var(--text-primary); }
 
   strong {
-    color: #ffffff; }
+    color: var(--heading-color); }
 
   canvas {
-    color: #ffffff; } }
+    color: var(--text-primary); } }
 a {
   color: var(--link-color);
   text-decoration: none; }
@@ -522,7 +563,7 @@ header {
     margin-bottom: 15px;
     font-size: 24px; }
     header h1 a {
-      color: var(--text-secondary);
+      color: var(--heading-color);
       text-decoration: none; }
       header h1 a:hover {
         color: var(--link-hover-color);
@@ -532,12 +573,15 @@ header {
     margin-top: 30px;
     margin-bottom: 15px;
     font-size: 18px;
-    color: var(--text-secondary); }
+    color: var(--heading-color); }
+    header h2 i {
+      color: var(--icon-color);
+      margin-right: 8px; }
     @media (prefers-color-scheme: dark) {
       header h2 {
         color: #ffffff; } }
   header .role {
-    color: var(--text-secondary);
+    color: var(--text-tertiary);
     margin-bottom: 30px;
     font-size: 16px;
     line-height: 1.5; }
@@ -556,6 +600,16 @@ header {
       margin-bottom: 10px;
       color: var(--link-color);
       text-decoration: none; }
+      header .social-links a i {
+        margin-right: 8px;
+        width: 16px;
+        text-align: center; }
+        header .social-links a i.fa-github {
+          color: var(--github-color); }
+        header .social-links a i.fa-linkedin {
+          color: var(--linkedin-color); }
+        header .social-links a i.fa-envelope {
+          color: var(--email-color); }
       header .social-links a:hover {
         color: var(--link-hover-color);
         text-decoration: underline;
@@ -567,21 +621,47 @@ section {
   text-align: left;
   border: none;
   padding: 0; }
-  section h1, section h2 {
+  section h1, section h2, section h3, section h4, section h5, section h6 {
     text-align: left; }
+    section h1 i, section h2 i, section h3 i, section h4 i, section h5 i, section h6 i {
+      margin-right: 8px;
+      width: 16px;
+      text-align: center; }
+      section h1 i.fa-user, section h2 i.fa-user, section h3 i.fa-user, section h4 i.fa-user, section h5 i.fa-user, section h6 i.fa-user {
+        color: var(--icon-color); }
+      section h1 i.fa-tools, section h2 i.fa-tools, section h3 i.fa-tools, section h4 i.fa-tools, section h5 i.fa-tools, section h6 i.fa-tools {
+        color: var(--skills-color); }
+      section h1 i.fa-code, section h2 i.fa-code, section h3 i.fa-code, section h4 i.fa-code, section h5 i.fa-code, section h6 i.fa-code {
+        color: var(--code-color); }
+      section h1 i.fa-java, section h2 i.fa-java, section h3 i.fa-java, section h4 i.fa-java, section h5 i.fa-java, section h6 i.fa-java {
+        color: var(--java-color); }
+      section h1 i.fa-layer-group, section h2 i.fa-layer-group, section h3 i.fa-layer-group, section h4 i.fa-layer-group, section h5 i.fa-layer-group, section h6 i.fa-layer-group {
+        color: var(--framework-color); }
+      section h1 i.fa-server, section h2 i.fa-server, section h3 i.fa-server, section h4 i.fa-server, section h5 i.fa-server, section h6 i.fa-server {
+        color: var(--devops-color); }
+      section h1 i.fa-cloud, section h2 i.fa-cloud, section h3 i.fa-cloud, section h4 i.fa-cloud, section h5 i.fa-cloud, section h6 i.fa-cloud {
+        color: var(--cloud-color); }
+      section h1 i.fa-vial, section h2 i.fa-vial, section h3 i.fa-vial, section h4 i.fa-vial, section h5 i.fa-vial, section h6 i.fa-vial {
+        color: var(--testing-color); }
+      section h1 i.fa-plus-circle, section h2 i.fa-plus-circle, section h3 i.fa-plus-circle, section h4 i.fa-plus-circle, section h5 i.fa-plus-circle, section h6 i.fa-plus-circle {
+        color: var(--icon-color); }
+      section h1 i.fa-briefcase, section h2 i.fa-briefcase, section h3 i.fa-briefcase, section h4 i.fa-briefcase, section h5 i.fa-briefcase, section h6 i.fa-briefcase {
+        color: var(--experience-color); }
+      section h1 i.fa-graduation-cap, section h2 i.fa-graduation-cap, section h3 i.fa-graduation-cap, section h4 i.fa-graduation-cap, section h5 i.fa-graduation-cap, section h6 i.fa-graduation-cap {
+        color: var(--education-color); }
     @media (prefers-color-scheme: dark) {
-      section h1, section h2 {
-        color: #ffffff; } }
+      section h1, section h2, section h3, section h4, section h5, section h6 {
+        color: var(--heading-color); } }
   section h3, section h4, section h5, section h6 {
     text-align: left; }
     @media (prefers-color-scheme: dark) {
       section h3, section h4, section h5, section h6 {
-        color: #ffffff; } }
+        color: var(--heading-color); } }
   section p, section ul {
     text-align: left; }
     @media (prefers-color-scheme: dark) {
       section p, section ul {
-        color: #ffffff; } }
+        color: var(--text-primary); } }
   section ul {
     list-style-type: none;
     list-style-position: inside;
@@ -610,19 +690,19 @@ section {
       text-align: center; } }
     @media print and (prefers-color-scheme: dark), screen and (max-width: 960px) and (prefers-color-scheme: dark) {
       section h1, section h2 {
-        color: #ffffff; } }
+        color: var(--heading-color); } }
 @media print, screen and (max-width: 960px) {
     section h3, section h4, section h5, section h6 {
       text-align: center; } }
     @media print and (prefers-color-scheme: dark), screen and (max-width: 960px) and (prefers-color-scheme: dark) {
       section h3, section h4, section h5, section h6 {
-        color: #ffffff; } }
+        color: var(--heading-color); } }
 @media print, screen and (max-width: 960px) {
     section p, section ul {
       text-align: center; } }
     @media print and (prefers-color-scheme: dark), screen and (max-width: 960px) and (prefers-color-scheme: dark) {
       section p, section ul {
-        color: #ffffff; } }
+        color: var(--text-primary); } }
 
 @media print, screen and (max-width: 960px) {
   .social-links {
