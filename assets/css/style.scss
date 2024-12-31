@@ -3,15 +3,44 @@
 
 @import "jekyll-theme-minimal";
 
-@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap");
+@font-face {
+  font-family: 'FiraCode Nerd Font';
+  src: url('../fonts/FiraCode/FiraCodeNerdFont-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'FiraCode Nerd Font';
+  src: url('../fonts/FiraCode/FiraCodeNerdFont-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
 
 :root {
-  --font-family: 'JetBrains Mono', 'Roboto Mono', 'Source Code Pro', 'Ubuntu Mono', 'Fira Mono', Consolas, monospace;
+  --icon-color: #009000;
+  --github-color: #171515;
+  --linkedin-color: #0a66c2;
+  --email-color: #ea4335;
+  --code-color: #e34c26;
+  --java-color: #007396;
+  --framework-color: #41b883;
+  --devops-color: #2496ed;
+  --cloud-color: #ff9900;
+  --testing-color: #4caf50;
+  --skills-color: #7952b3;
+  --experience-color: #0175c2;
+  --education-color: #8c4bff;
+  --font-family: 'FiraCode Nerd Font', monospace;
   --bg-primary: #fff;
   --bg-secondary: #f6f8fa;
   --text-primary: #727272;
   --text-secondary: #393939;
-  --link-color: #00ff00;
+  --text-tertiary: #666666;
+  --heading-color: #393939;
+  --link-color: #009000;
   --link-hover-color: #fc9929;
   --border-color: #e1e4e8;
 }
@@ -20,23 +49,38 @@
   :root {
     --bg-primary: #24292e;
     --bg-secondary: #586069;
-    --text-primary: #ffffff;
-    --text-secondary: #ffffff;
+    --text-primary: #E6E6E6;
+    --text-secondary: #D1D1D1;
+    --text-tertiary: #BFBFBF;
+    --heading-color: #FFFFFF;
     --link-color: #00ff00;
+    --icon-color: #00ff00;
+    --github-color: #c9d1d9;
+    --linkedin-color: #0a66c2;
+    --email-color: #ea4335;
+    --code-color: #e34c26;
+    --java-color: #007396;
+    --framework-color: #61dafb;
+    --devops-color: #2496ed;
+    --cloud-color: #ff9900;
+    --testing-color: #4caf50;
+    --skills-color: #563d7c;
+    --experience-color: #0175c2;
+    --education-color: #8c4bff;
     --link-hover-color: #fc9929;
     --border-color: #1e1b17;
   }
   
   body {
-    color: #ffffff;
+    color: var(--text-primary);
   }
   
   strong {
-    color: #ffffff;
+    color: var(--heading-color);
   }
   
   canvas {
-    color: #ffffff;
+    color: var(--text-primary);
   }
 }
 
@@ -80,7 +124,7 @@ header {
     font-size: 24px;
     
     a {
-      color: var(--text-secondary);
+      color: var(--heading-color);
       text-decoration: none;
       
       &:hover {
@@ -95,7 +139,12 @@ header {
     margin-top: 30px;
     margin-bottom: 15px;
     font-size: 18px;
-    color: var(--text-secondary);
+    color: var(--heading-color);
+
+    i {
+      color: var(--icon-color);
+      margin-right: 8px;
+    }
 
     @media (prefers-color-scheme: dark) {
       color: #ffffff;
@@ -103,7 +152,7 @@ header {
   }
 
   .role {
-    color: var(--text-secondary);
+    color: var(--text-tertiary);
     margin-bottom: 30px;
     font-size: 16px;
     line-height: 1.5;
@@ -127,6 +176,22 @@ header {
       margin-bottom: 10px;
       color: var(--link-color);
       text-decoration: none;
+
+      i {
+        margin-right: 8px;
+        width: 16px;
+        text-align: center;
+
+        &.fa-github {
+          color: var(--github-color);
+        }
+        &.fa-linkedin {
+          color: var(--linkedin-color);
+        }
+        &.fa-envelope {
+          color: var(--email-color);
+        }
+      }
       
       &:hover {
         color: var(--link-hover-color);
@@ -144,11 +209,51 @@ section {
   border: none;
   padding: 0;
   
-  h1, h2 {
+  h1, h2, h3, h4, h5, h6 {
     text-align: left;
+
+    i {
+      margin-right: 8px;
+      width: 16px;
+      text-align: center;
+
+      &.fa-user {
+        color: var(--icon-color);
+      }
+      &.fa-tools {
+        color: var(--skills-color);
+      }
+      &.fa-code {
+        color: var(--code-color);
+      }
+      &.fa-java {
+        color: var(--java-color);
+      }
+      &.fa-layer-group {
+        color: var(--framework-color);
+      }
+      &.fa-server {
+        color: var(--devops-color);
+      }
+      &.fa-cloud {
+        color: var(--cloud-color);
+      }
+      &.fa-vial {
+        color: var(--testing-color);
+      }
+      &.fa-plus-circle {
+        color: var(--icon-color);
+      }
+      &.fa-briefcase {
+        color: var(--experience-color);
+      }
+      &.fa-graduation-cap {
+        color: var(--education-color);
+      }
+    }
     
     @media (prefers-color-scheme: dark) {
-      color: #ffffff;
+      color: var(--heading-color);
     }
   }
   
@@ -156,7 +261,7 @@ section {
     text-align: left;
     
     @media (prefers-color-scheme: dark) {
-      color: #ffffff;
+      color: var(--heading-color);
     }
   }
   
@@ -164,7 +269,7 @@ section {
     text-align: left;
     
     @media (prefers-color-scheme: dark) {
-      color: #ffffff;
+      color: var(--text-primary);
     }
   }
   
@@ -205,7 +310,7 @@ section {
       text-align: center;
       
       @media (prefers-color-scheme: dark) {
-        color: #ffffff;
+        color: var(--heading-color);
       }
     }
     
@@ -213,7 +318,7 @@ section {
       text-align: center;
       
       @media (prefers-color-scheme: dark) {
-        color: #ffffff;
+        color: var(--heading-color);
       }
     }
     
@@ -221,7 +326,7 @@ section {
       text-align: center;
       
       @media (prefers-color-scheme: dark) {
-        color: #ffffff;
+        color: var(--text-primary);
       }
     }
   }

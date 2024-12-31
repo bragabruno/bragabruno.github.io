@@ -1,28 +1,53 @@
-# About Me
+# <i class="fas fa-user"></i> About Me
 
 Bruno Braga is an innovative tech entrepreneur and senior software engineer with extensive experience in building scalable systems and leading cross-functional teams. As the founder and CTO of Vest Social, Inc., he spearheaded the development of a social media platform that seamlessly integrates job posting and networking capabilities. Bruno blends technical mastery with strategic leadership, making him an asset in any dynamic, tech-driven environment.
 
-## Skills
+## <i class="fas fa-tools"></i> Skills
 
-### Programming Languages
-Dart, Java, Python, C#, TypeScript, JavaScript, C, C++
+### <i class="fas fa-code"></i> Programming Languages
+- Dart
+- Java
+- Python
+- C#
+- TypeScript
+- JavaScript
+- C/C++
 
-### Java Stack
-Spring Framework (Spring Boot, Spring Cloud, Spring Security, Spring Data JPA), Hibernate/JPA, Maven/Gradle, Apache Tomcat/JBoss, JUnit, Mockito, TestContainers, Java EE/Jakarta EE
+### <i class="fab fa-java"></i> Java Stack
+- Java EE/Jakarta EE
+- Hibernate/JPA
+- Maven/Gradle
+- Apache Tomcat/JBoss
 
-### Frameworks
-Flutter, NestJS, Laravel, Vue.js, Nuxt.js
+### <i class="fas fa-layer-group"></i> Frameworks
+- Spring Framework (Spring Boot, Spring Cloud, Spring Security, Spring Data JPA)
+- Flutter
+- NestJS
+- Laravel
+- Vue.js
+- Nuxt.js
 
-### DevOps
-Jenkins, Kubernetes (EKS), Istio, Terraform, Grafana
+### <i class="fas fa-server"></i> DevOps
+- Jenkins
+- Kubernetes (EKS)
+- Istio
+- Terraform
+- Grafana
 
-### Cloud & Tools
-AWS, Firebase, Redis, PostgreSQL, RevenueCat
+### <i class="fas fa-cloud"></i> Cloud & Tools
+- AWS
+- Firebase
+- Redis
+- PostgreSQL
+- RevenueCat
 
-### Testing & CI/CD
-Codemagic, GitHub Actions, Jest, SonarQube
+### <i class="fas fa-vial"></i> Testing & CI/CD
+- Codemagic
+- GitHub Actions
+- Jest
+- SonarQube
 
-### Additional Skills
+### <i class="fas fa-plus-circle"></i> Additional Skills
 - Leadership
 - Project management
 - Mentorship
@@ -30,7 +55,7 @@ Codemagic, GitHub Actions, Jest, SonarQube
 - Cloud-native apps
 - Interfaith app development
 
-## Experience
+## <i class="fas fa-briefcase"></i> Experience
 
 ### Founder and CTO
 **Vest Social, Inc.** | April 2024 - Present
@@ -44,6 +69,6 @@ Codemagic, GitHub Actions, Jest, SonarQube
 - Specialized in backend systems and scalability
 - Expert in DevOps practices and cloud architecture
 
-## Education
+## <i class="fas fa-graduation-cap"></i> Education
 
 ### Bachelor's Degree in Computer Science
