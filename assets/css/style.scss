@@ -4,9 +4,7 @@
 @import "{{ site.theme }}";
 
 .profile-img {
-  max-width: 200px;
   border-radius: 50%;
-  margin-bottom: 20px;
   border: 3px solid #f6f8fa;
 }
 
@@ -15,28 +13,11 @@ header {
     font-size: 28px;
     margin-bottom: 20px;
   }
-}
-
-.site-description {
-  font-size: 16px;
-  line-height: 1.5;
-  color: #24292e;
-  margin-bottom: 20px;
-  font-weight: 500;
-}
-
-.social-links {
-  margin-top: 20px;
   
-  a {
-    display: inline-block;
-    margin-right: 15px;
-    color: #0366d6;
-    text-decoration: none;
-    
-    &:hover {
-      text-decoration: underline;
-    }
+  p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #24292e;
   }
 }
 
@@ -59,6 +40,21 @@ section {
     
     li {
       margin-bottom: 8px;
+    }
+  }
+}
+
+.social-links {
+  margin-top: 20px;
+  
+  a {
+    display: inline-block;
+    margin-right: 15px;
+    color: #0366d6;
+    text-decoration: none;
+    
+    &:hover {
+      text-decoration: underline;
     }
   }
 }
