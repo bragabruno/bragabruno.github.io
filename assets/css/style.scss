@@ -3,7 +3,61 @@
 
 @import "jekyll-theme-minimal";
 
+:root {
+  --icon-color: #009000;
+  --github-color: #171515;
+  --linkedin-color: #0a66c2;
+  --email-color: #ea4335;
+  --code-color: #e34c26;
+  --java-color: #007396;
+  --framework-color: #41b883;
+  --devops-color: #2496ed;
+  --cloud-color: #ff9900;
+  --testing-color: #4caf50;
+  --skills-color: #7952b3;
+  --experience-color: #0175c2;
+  --education-color: #8c4bff;
+  --font-family: 'Courier New', 'Consolas', 'DejaVu Sans Mono', 'Lucida Console', monospace;
+  --bg-primary: #f0f2f4;
+  --bg-secondary: #e6e9ec;
+  --text-primary: #727272;
+  --text-secondary: #393939;
+  --text-tertiary: #666666;
+  --heading-color: #393939;
+  --link-color: #009000;
+  --link-hover-color: #fc9929;
+  --border-color: #e1e4e8;
+  --transition-speed: 0.3s;
+  --hover-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
 @media (prefers-color-scheme: dark) {
+  :root {
+    --bg-primary: #24292e;
+    --bg-secondary: #2d333b;
+    --text-primary: #ffffff;
+    --text-secondary: #f0f0f0;
+    --text-tertiary: #e0e0e0;
+    --heading-color: #FFFFFF;
+    --link-color: #00ff00;
+    --icon-color: #00ff00;
+    --github-color: #ffffff;
+    --linkedin-color: #0a66c2;
+    --email-color: #ea4335;
+    --code-color: #e34c26;
+    --java-color: #007396;
+    --framework-color: #61dafb;
+    --devops-color: #2496ed;
+    --cloud-color: #ff9900;
+    --testing-color: #4caf50;
+    --skills-color: #c8a2ff;
+    --experience-color: #0175c2;
+    --education-color: #8c4bff;
+    --link-hover-color: #fc9929;
+    --border-color: #1e1b17;
+    --hover-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+
   body {
     color: var(--text-primary) !important;
   }
@@ -48,89 +102,9 @@
   position: relative;
   top: -1px;
   opacity: 0.7;
-}
 
-.cursor.typing {
-  opacity: 0.9;
-}
-
-:root {
-  --icon-color: #009000;
-  --github-color: #171515;
-  --linkedin-color: #0a66c2;
-  --email-color: #ea4335;
-  --code-color: #e34c26;
-  --java-color: #007396;
-  --framework-color: #41b883;
-  --devops-color: #2496ed;
-  --cloud-color: #ff9900;
-  --testing-color: #4caf50;
-  --skills-color: #7952b3;
-  --experience-color: #0175c2;
-  --education-color: #8c4bff;
-  --font-family: 'Courier New', 'Consolas', 'DejaVu Sans Mono', 'Lucida Console', monospace;
-  --bg-primary: #fff;
-  --bg-secondary: #f6f8fa;
-  --text-primary: #727272;
-  --text-secondary: #393939;
-  --text-tertiary: #666666;
-  --heading-color: #393939;
-  --link-color: #009000;
-  --link-hover-color: #fc9929;
-  --border-color: #e1e4e8;
-  --transition-speed: 0.3s;
-  --hover-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg-primary: #24292e;
-    --bg-secondary: #2d333b;
-    --text-primary: #ffffff;
-    --text-secondary: #f0f0f0;
-    --text-tertiary: #e0e0e0;
-    --heading-color: #FFFFFF;
-    --link-color: #00ff00;
-    --icon-color: #00ff00;
-    --github-color: #ffffff;
-    --linkedin-color: #0a66c2;
-    --email-color: #ea4335;
-    --code-color: #e34c26;
-    --java-color: #007396;
-    --framework-color: #61dafb;
-    --devops-color: #2496ed;
-    --cloud-color: #ff9900;
-    --testing-color: #4caf50;
-    --skills-color: #c8a2ff;
-    --experience-color: #0175c2;
-    --education-color: #8c4bff;
-    --link-hover-color: #fc9929;
-    --border-color: #1e1b17;
-    --hover-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  }
-}
-
-.theme-toggle {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background: var(--bg-secondary);
-  border: none;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--text-primary);
-  transition: all var(--transition-speed) ease;
-  z-index: 1000;
-  box-shadow: var(--hover-shadow);
-
-  &:hover {
-    transform: scale(1.1) rotate(10deg);
-    background: var(--bg-primary);
+  &.typing {
+    opacity: 0.9;
   }
 }
 
